@@ -1,6 +1,6 @@
 # FaceCheck-in-FreeRTOS-ESP32
 FaceCheck-in FreeRTOS ESP32 Use FreeRTOS and 1.54 inch IPS LCD
-
+> Version 1 available at: https://github.com/minh-le1710/FaceCheck-in
 ## RTOS Priority Task
 | Task Name                 | Priority         | Core Affinity | Frequency / Trigger       | Notes                     |
 |---------------------------|---------------------|---------------|--------------------------|---------------------------|
