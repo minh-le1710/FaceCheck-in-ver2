@@ -11,4 +11,5 @@ FaceCheck-in FreeRTOS ESP32 Use FreeRTOS and 1.54 inch IPS LCD
 
 ## Dashboard
 320*240 Resolution
+
 ![Face Checkin Demo](face-checkin-2/240320%20(240%20x%20240%20px)%20(1).png)
