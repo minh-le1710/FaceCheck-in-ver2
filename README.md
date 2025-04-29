@@ -9,3 +9,5 @@ FaceCheck-in FreeRTOS ESP32 Use FreeRTOS and 1.54 inch IPS LCD
 | Time & Weather Update     | 2               | Core 0        | Every 1 minute (timer)      | HTTP + NTP                |
 | Display Update            | 1                | Core 1        | Every 1 s                   | Draw clock & status       |
 
+##Dashboard
+![Face Checkin Demo](face-checkin-2/240320%20(240%20x%20240%20px)%20(1).png)
