@@ -5,7 +5,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_ST7789.h>
 #include <Fonts/FreeSans12pt7b.h>
-#include <DHT.h>               // 
+#include <DHT.h>               // 🛠️ cần lib “DHT sensor library by Adafruit”
 #include <time.h>
 
 #include "1.h"   // img1[240*320]
@@ -30,6 +30,13 @@
 
 #define SCREEN_W  240
 #define SCREEN_H  320
+
+#define ALL_LEDS_OFF()  \
+  do {                  \
+    digitalWrite(LED_R, LOW); \
+    digitalWrite(LED_G, LOW); \
+    digitalWrite(LED_B, LOW); \
+  } while(0)
 
 // — MẠNG & MQTT —
 const char* WIFI_SSID   = "vivo S17e";
@@ -67,6 +74,7 @@ void drawWifiIcon(int bars) {
 }
 
 void displayNormal(){
+  ALL_LEDS_OFF();
   tft.drawRGBBitmap(0,0,img1,SCREEN_W,SCREEN_H);
   struct tm tmInfo;
   if(!getLocalTime(&tmInfo)) return;
@@ -98,7 +106,7 @@ void displayNormal(){
 
   // Wi-Fi icon
   int32_t rssi=WiFi.RSSI();
-  int bars = (rssi>-55?5:rssi>-65?4:rssi>-75?3:rssi>-85?2:rssi>-95?1:0);
+  int bars = (rssi>-55?5:rssi>-80?4:rssi>-100?3:rssi>-130?2:rssi>-150?1:0);
   drawWifiIcon(bars);
 }
 
@@ -150,6 +158,8 @@ void setup(){
   pinMode(TFT_BL,OUTPUT); digitalWrite(TFT_BL, HIGH);
   SPI.begin(TFT_SCK,19,TFT_MOSI,TFT_CS);
   tft.init(SCREEN_W,SCREEN_H); tft.setRotation(0);
+  tft.setSPISpeed(40000000UL);
+  tft.setRotation(0);
   displayNormal();
   WiFi.begin(WIFI_SSID,WIFI_PASS);
   unsigned long t0=millis();
