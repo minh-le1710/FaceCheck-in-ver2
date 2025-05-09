@@ -18,8 +18,7 @@ index 912d872..5020eac 100644
  #include <Adafruit_GFX.h>
  #include <Adafruit_ST7789.h>
 -#include <Fonts/FreeSans12pt7b.h>
--#include <DHT.h>               // 🛠️ cần lib “DHT sensor library by Adafruit”
-+#include <DHT.h>               
+             
  #include <time.h>
 +#include <Fonts/FreeSans12pt7b.h>
 +
