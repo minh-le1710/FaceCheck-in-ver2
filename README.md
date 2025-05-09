@@ -12,6 +12,7 @@ FaceCheck-in FreeRTOS ESP32 Use FreeRTOS and 2.0 inch TFT LCD
 
 ## State
 > 320*240 Resolution
+
 | Dashboard            | Success         | Fail |
 |---------------------------|---------------------|---------------|
 | ![Dashboard](face-checkin-2/dashboard.png)        | ![Dashboard](face-checkin-2/success.png)             |  ![Dashboard](face-checkin-2/fail.png)     | 
