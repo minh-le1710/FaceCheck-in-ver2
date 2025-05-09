@@ -4,9 +4,10 @@
 #include <SPI.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_ST7789.h>
-#include <Fonts/FreeSans12pt7b.h>
-#include <DHT.h>               // 🛠️ cần lib “DHT sensor library by Adafruit”
+#include <DHT.h>               
 #include <time.h>
+#include <Fonts/FreeSans12pt7b.h>
+
 
 #include "1.h"   // img1[240*320]
 #include "2.h"   // img2[240*320]
@@ -31,14 +32,14 @@
 #define SCREEN_W  240
 #define SCREEN_H  320
 
-#define ALL_LEDS_OFF()  \
-  do {                  \
-    digitalWrite(LED_R, LOW); \
-    digitalWrite(LED_G, LOW); \
-    digitalWrite(LED_B, LOW); \
+#define ALL_LEDS_OFF()  
+  do {                  
+    digitalWrite(LED_R, LOW); 
+    digitalWrite(LED_G, LOW); 
+    digitalWrite(LED_B, LOW); 
   } while(0)
 
-// — MẠNG & MQTT —
+// MQTT Key and Wifi
 const char* WIFI_SSID   = "vivo S17e";
 const char* WIFI_PASS   = "minh1710";
 const char* MQTT_SERVER = "io.adafruit.com";
@@ -47,7 +48,7 @@ const char* AIO_USER    = "nhatminh1710";
 const char* AIO_KEY     = "key";
 const char* FEED_TOPIC  = "feed";
 
-// — OBJECTS —
+// Screen
 Adafruit_ST7789 tft = Adafruit_ST7789(TFT_CS, TFT_DC, TFT_RST);
 WiFiClient    netClient;
 PubSubClient  mqttClient(netClient);
@@ -55,7 +56,7 @@ DHT           dht(DHTPIN, DHTTYPE);
 
 float currentTemp = NAN;
 
-// — UTILITIES —
+// Buzzer
 void beep() {
   digitalWrite(BUZZER, LOW);
   vTaskDelay(pdMS_TO_TICKS(200));

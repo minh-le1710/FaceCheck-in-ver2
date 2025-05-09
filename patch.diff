@@ -1,0 +1,67 @@
+diff --git a/README.md b/README.md
+index d377c66..6091efe 100644
+--- a/README.md
++++ b/README.md
+@@ -1,5 +1,5 @@
+ # FaceCheck-in-FreeRTOS-ESP32
+-FaceCheck-in FreeRTOS ESP32 Use FreeRTOS and 1.54 inch IPS LCD
++FaceCheck-in FreeRTOS ESP32 Use FreeRTOS and 2.0 inch TFT LCD
+ > Version 1 available at: https://github.com/minh-le1710/FaceCheck-in
+ ## RTOS Priority Task
+ | Task Name                 | Priority         | Core Affinity | Frequency / Trigger       | Notes                     |
+diff --git a/face-checkin-2/src/main.cpp b/face-checkin-2/src/main.cpp
+index 912d872..5020eac 100644
+--- a/face-checkin-2/src/main.cpp
++++ b/face-checkin-2/src/main.cpp
+@@ -4,9 +4,10 @@
+ #include <SPI.h>
+ #include <Adafruit_GFX.h>
+ #include <Adafruit_ST7789.h>
+-#include <Fonts/FreeSans12pt7b.h>
+-#include <DHT.h>               // 🛠️ cần lib “DHT sensor library by Adafruit”
++#include <DHT.h>               
+ #include <time.h>
++#include <Fonts/FreeSans12pt7b.h>
++
+ 
+ #include "1.h"   // img1[240*320]
+ #include "2.h"   // img2[240*320]
+@@ -31,14 +32,14 @@
+ #define SCREEN_W  240
+ #define SCREEN_H  320
+ 
+-#define ALL_LEDS_OFF()  \
+-  do {                  \
+-    digitalWrite(LED_R, LOW); \
+-    digitalWrite(LED_G, LOW); \
+-    digitalWrite(LED_B, LOW); \
++#define ALL_LEDS_OFF()  
++  do {                  
++    digitalWrite(LED_R, LOW); 
++    digitalWrite(LED_G, LOW); 
++    digitalWrite(LED_B, LOW); 
+   } while(0)
+ 
+-// — MẠNG & MQTT —
++// MQTT Key and Wifi
+ const char* WIFI_SSID   = "vivo S17e";
+ const char* WIFI_PASS   = "minh1710";
+ const char* MQTT_SERVER = "io.adafruit.com";
+@@ -47,7 +48,7 @@ const char* AIO_USER    = "nhatminh1710";
+ const char* AIO_KEY     = "key";
+ const char* FEED_TOPIC  = "feed";
+ 
+-// — OBJECTS —
++// Screen
+ Adafruit_ST7789 tft = Adafruit_ST7789(TFT_CS, TFT_DC, TFT_RST);
+ WiFiClient    netClient;
+ PubSubClient  mqttClient(netClient);
+@@ -55,7 +56,7 @@ DHT           dht(DHTPIN, DHTTYPE);
+ 
+ float currentTemp = NAN;
+ 
+-// — UTILITIES —
++// Buzzer
+ void beep() {
+   digitalWrite(BUZZER, LOW);
+   vTaskDelay(pdMS_TO_TICKS(200));
