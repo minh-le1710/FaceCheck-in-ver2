@@ -105,3 +105,6 @@ This opens the Serial Monitor at the default baud rate (115200).
 ---
 
 You’re now running the FaceCheck-in firmware on your ESP32! It will connect to WiFi, subscribe to the Adafruit IO MQTT feed, and display check-in status on the ST7789 screen. If you have any questions or run into issues, please open an issue on the GitHub repository.
+
+## Demo
+[![Demo](https://img.youtube.com/vi/JFucLhiPfvQ/0.jpg)](https://youtu.be/JFucLhiPfvQ)
