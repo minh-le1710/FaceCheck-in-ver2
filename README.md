@@ -1,6 +1,7 @@
 # FaceCheck-in-FreeRTOS-ESP32
 FaceCheck-in FreeRTOS ESP32 Use FreeRTOS and 2.0 inch TFT LCD
 > Main repo of project at: https://github.com/nguyentantai21042004/CO3109-Multidisciplinary_Project
+
 > Version 1 available at: https://github.com/minh-le1710/FaceCheck-in
 ## RTOS Priority Task
 | Task Name                 | Priority         | Core Affinity | Frequency / Trigger       | Notes                     |
